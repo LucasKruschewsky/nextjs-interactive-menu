@@ -1,0 +1,23 @@
+:root {
+  /* Dark theme */
+  --primaryDarker: #1c1c1c;
+  --primaryDark: #2f2f2f;
+  --primary: #434343;
+  --primaryLight: #575757;
+
+  --secondaryDarker: #fdbe39;
+  --secondaryDark: #fecf3e;
+  --secondary: #ffda3d;
+  --secondaryLight: #fff056;
+
+  --white: #eee;
+
+  --backgroundColor: var(--primaryDarker);
+
+  /* Spacings */
+  --spacingVeryLarge: 4rem;
+  --spacingLarge: 3rem;
+  --spacingMedium: 2rem;
+  --spacingShort: 1rem;
+  --spacingVeryShort: 0.5rem;
+}
