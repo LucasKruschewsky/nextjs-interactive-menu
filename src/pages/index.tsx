@@ -1,10 +1,5 @@
 import { Navbar } from "@/components/website-parts/Navbar/Navbar";
-import { darkTheme, DARK_THEME, lightTheme } from "@/hooks/useTheme/themes";
 import Head from "next/head";
-import { ThemeProvider } from "styled-components";
-import { useCurrentTheme, useTheme } from "@/hooks/useTheme/useTheme";
-import { GlobalStyles } from "@/styles/global.styled";
-import { SelectedThemeContext } from "@/hooks/useTheme/useTheme.context";
 
 export default function Home() {
   return (
@@ -16,13 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <ThemeProvider
-          theme={useCurrentTheme() === DARK_THEME ? darkTheme : lightTheme}
-        >
-          <Navbar />
-          <GlobalStyles />
-        </ThemeProvider>
-        <p>{useCurrentTheme()} from Home</p>
+        <Navbar />
       </main>
     </>
   );

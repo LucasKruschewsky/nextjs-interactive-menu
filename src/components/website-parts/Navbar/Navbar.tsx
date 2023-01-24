@@ -1,35 +1,57 @@
 import { ComponentContainer } from "@/components/ui-components/ComponentContainer/ComponentContainer";
-import { FC } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { NavbarContainer } from "./Navbar.styled";
 import { GoBook } from "react-icons/go";
-import { NavigationItem } from "@/components/ui-components/NavigationItem/NavigationItem";
-import {
-  useCurrentTheme,
-  useSelectDarkTheme,
-  useSelectLightTheme,
-  useTheme,
-} from "@/hooks/useTheme/useTheme";
-import { DARK_THEME } from "@/hooks/useTheme/themes";
-
-// __TODO__ - This will come from database later
-const menuItems = [
-  {
-    content: "item 1",
-  },
-  {
-    content: "item 2",
-  },
-  {
-    content: "item 3",
-  },
-  {
-    content: "item 4",
-  },
-];
+import { useIsDarkModePreferred } from "@/hooks/useIsDarkModePreferred";
+import { SelectButton } from "@/components/ui-components/SelectButton/SelectButton";
+import { DARK_THEME, LIGHT_THEME } from "@/constants/themeConstants";
 
 export const Navbar: FC = () => {
-  const selectDarkTheme = useSelectDarkTheme();
-  const selectLightTheme = useSelectLightTheme();
+  let isDarkModePreferred = useIsDarkModePreferred();
+
+  const [documentBodyClassList, setDocumentBodyClassList] =
+    useState<DOMTokenList>();
+  const [documentBodyClassListValue, setDocumentBodyClassListValue] =
+    useState<string>("");
+
+  useEffect(() => {
+    setDocumentBodyClassList(document.body.classList);
+    setDocumentBodyClassListValue(document.body.classList.value);
+  }, []);
+
+  const handleToggleTheme = useCallback(() => {
+    if (
+      documentBodyClassList?.contains(DARK_THEME) ||
+      documentBodyClassList?.contains(LIGHT_THEME)
+    ) {
+      document.body.classList.toggle(DARK_THEME);
+      document.body.classList.toggle(LIGHT_THEME);
+      setDocumentBodyClassList(document.body.classList);
+      setDocumentBodyClassListValue(document.body.classList.value);
+    }
+
+    if (
+      isDarkModePreferred &&
+      !documentBodyClassList?.contains(DARK_THEME) &&
+      !documentBodyClassList?.contains(LIGHT_THEME)
+    ) {
+      document.body.classList.add(LIGHT_THEME);
+      setDocumentBodyClassList(document.body.classList);
+      setDocumentBodyClassListValue(document.body.classList.value);
+      return;
+    }
+
+    if (
+      !isDarkModePreferred &&
+      !documentBodyClassList?.contains(DARK_THEME) &&
+      !documentBodyClassList?.contains(LIGHT_THEME)
+    ) {
+      document.body.classList.add(DARK_THEME);
+      setDocumentBodyClassList(document.body.classList);
+      setDocumentBodyClassListValue(document.body.classList.value);
+      return;
+    }
+  }, [documentBodyClassList, isDarkModePreferred]);
 
   return (
     <ComponentContainer>
@@ -38,19 +60,12 @@ export const Navbar: FC = () => {
           <GoBook className="svgIcon" />
           <p className="menuTitle">Interactive Menu</p>
         </div>
-        <div className="navigationItems">
-          <ul>
-            {menuItems.map((item) => (
-              <NavigationItem key={item.content}>{item.content}</NavigationItem>
-            ))}
-          </ul>
-        </div>
-        <p style={{ color: "red" }}>{useCurrentTheme()} from navbar</p>
-        {useCurrentTheme() === DARK_THEME ? (
-          <button onClick={selectLightTheme}>Select Light Theme</button>
-        ) : (
-          <button onClick={selectDarkTheme}>Select Dark Theme</button>
-        )}
+        <div className="navigationItems">{documentBodyClassListValue}</div>
+
+        <SelectButton
+          checked={isDarkModePreferred}
+          onChange={handleToggleTheme}
+        />
       </NavbarContainer>
     </ComponentContainer>
   );

@@ -1,5 +1,5 @@
-:root {
-  /* Dark theme */
+/* Dark theme variables */
+body.dark-theme {
   --primaryDarker: #1c1c1c;
   --primaryDark: #2f2f2f;
   --primary: #434343;
@@ -12,9 +12,66 @@
 
   --white: #eee;
 
-  --backgroundColor: var(--primaryDarker);
+  --backgroundColor: #1c1c1c;
+}
 
-  /* Spacings */
+/* Light theme variables */
+body.light-theme {
+  --primaryDarker: #fdbe39;
+  --primaryDark: #fecf3e;
+  --primary: #ffda3d;
+  --primaryLight: #fff056;
+
+  --secondaryDarker: #1c1c1c;
+  --secondaryDark: #2f2f2f;
+  --secondary: #434343;
+  --secondaryLight: #575757;
+
+  --white: #eee;
+
+  --backgroundColor: red;
+}
+
+/* If user prefers dark scheme */
+@media (prefers-color-scheme: dark) {
+  body {
+    --primaryDarker: #1c1c1c;
+    --primaryDark: #2f2f2f;
+    --primary: #434343;
+    --primaryLight: #575757;
+
+    --secondaryDarker: #fdbe39;
+    --secondaryDark: #fecf3e;
+    --secondary: #ffda3d;
+    --secondaryLight: #fff056;
+
+    --white: #eee;
+
+    --backgroundColor: #1c1c1c;
+  }
+}
+
+/* If user prefers light scheme */
+@media (prefers-color-scheme: light) {
+  body {
+    --primaryDarker: #fdbe39;
+    --primaryDark: #fecf3e;
+    --primary: #ffda3d;
+    --primaryLight: #fff056;
+
+    --secondaryDarker: #1c1c1c;
+    --secondaryDark: #2f2f2f;
+    --secondary: #434343;
+    --secondaryLight: #575757;
+
+    --white: #eee;
+
+    --backgroundColor: red;
+  }
+}
+
+/* Spacings */
+:root {
   --spacingVeryLarge: 4rem;
   --spacingLarge: 3rem;
   --spacingMedium: 2rem;
