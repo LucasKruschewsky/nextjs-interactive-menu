@@ -36,7 +36,7 @@ export const SelectButton: FC<Props> = ({
     if (touched && !!onFalse && !value) {
       onFalse();
     }
-  }, [value, touched, onTrue, onFalse]);
+  }, [value, touched, onChange, onTrue, onFalse]);
 
   const handleToggleChange = (e: InputSwitchChangeParams) => {
     setValue(e.value);

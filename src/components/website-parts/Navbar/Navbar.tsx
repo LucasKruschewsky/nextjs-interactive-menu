@@ -5,53 +5,49 @@ import { GoBook } from "react-icons/go";
 import { useIsDarkModePreferred } from "@/hooks/useIsDarkModePreferred";
 import { SelectButton } from "@/components/ui-components/SelectButton/SelectButton";
 import { DARK_THEME, LIGHT_THEME } from "@/constants/themeConstants";
+import { bodyClassListContains, getBodyClassListArray } from "./Navbar.helper";
 
 export const Navbar: FC = () => {
   let isDarkModePreferred = useIsDarkModePreferred();
 
-  const [documentBodyClassList, setDocumentBodyClassList] =
-    useState<DOMTokenList>();
-  const [documentBodyClassListValue, setDocumentBodyClassListValue] =
-    useState<string>("");
+  const [documentBodyClassList, setDocumentBodyClassList] = useState<string[]>([
+    "",
+  ]);
 
   useEffect(() => {
-    setDocumentBodyClassList(document.body.classList);
-    setDocumentBodyClassListValue(document.body.classList.value);
+    setDocumentBodyClassList(getBodyClassListArray());
   }, []);
 
   const handleToggleTheme = useCallback(() => {
     if (
-      documentBodyClassList?.contains(DARK_THEME) ||
-      documentBodyClassList?.contains(LIGHT_THEME)
+      bodyClassListContains(DARK_THEME) ||
+      bodyClassListContains(LIGHT_THEME)
     ) {
       document.body.classList.toggle(DARK_THEME);
       document.body.classList.toggle(LIGHT_THEME);
-      setDocumentBodyClassList(document.body.classList);
-      setDocumentBodyClassListValue(document.body.classList.value);
+      setDocumentBodyClassList(getBodyClassListArray());
     }
 
     if (
       isDarkModePreferred &&
-      !documentBodyClassList?.contains(DARK_THEME) &&
-      !documentBodyClassList?.contains(LIGHT_THEME)
+      !bodyClassListContains(DARK_THEME) &&
+      !bodyClassListContains(LIGHT_THEME)
     ) {
       document.body.classList.add(LIGHT_THEME);
-      setDocumentBodyClassList(document.body.classList);
-      setDocumentBodyClassListValue(document.body.classList.value);
+      setDocumentBodyClassList(getBodyClassListArray());
       return;
     }
 
     if (
       !isDarkModePreferred &&
-      !documentBodyClassList?.contains(DARK_THEME) &&
-      !documentBodyClassList?.contains(LIGHT_THEME)
+      !bodyClassListContains(DARK_THEME) &&
+      !bodyClassListContains(LIGHT_THEME)
     ) {
       document.body.classList.add(DARK_THEME);
-      setDocumentBodyClassList(document.body.classList);
-      setDocumentBodyClassListValue(document.body.classList.value);
+      setDocumentBodyClassList(getBodyClassListArray());
       return;
     }
-  }, [documentBodyClassList, isDarkModePreferred]);
+  }, [isDarkModePreferred]);
 
   return (
     <ComponentContainer>
@@ -60,7 +56,7 @@ export const Navbar: FC = () => {
           <GoBook className="svgIcon" />
           <p className="menuTitle">Interactive Menu</p>
         </div>
-        <div className="navigationItems">{documentBodyClassListValue}</div>
+        <div className="navigationItems">{documentBodyClassList}</div>
 
         <SelectButton
           checked={isDarkModePreferred}
