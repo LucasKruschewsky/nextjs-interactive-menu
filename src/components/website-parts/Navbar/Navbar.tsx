@@ -26,8 +26,10 @@ export const Navbar: FC = () => {
       document.body.classList.toggle(DARK_THEME);
       document.body.classList.toggle(LIGHT_THEME);
       setDocumentBodyClassList(getBodyClassListArray());
+      return;
     }
 
+    // First "toggle" when user prefers dark mode
     if (
       isDarkModePreferred &&
       !bodyClassListContains(DARK_THEME) &&
@@ -38,6 +40,7 @@ export const Navbar: FC = () => {
       return;
     }
 
+    // First "toggle" when user prefers light mode
     if (
       !isDarkModePreferred &&
       !bodyClassListContains(DARK_THEME) &&

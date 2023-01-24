@@ -1,5 +1,5 @@
 /* Dark theme variables */
-body.dark-theme {
+body.darkTheme {
   --primaryDarker: #1c1c1c;
   --primaryDark: #2f2f2f;
   --primary: #434343;
@@ -16,7 +16,7 @@ body.dark-theme {
 }
 
 /* Light theme variables */
-body.light-theme {
+body.lightTheme {
   --primaryDarker: #fdbe39;
   --primaryDark: #fecf3e;
   --primary: #ffda3d;
@@ -29,7 +29,7 @@ body.light-theme {
 
   --white: #eee;
 
-  --backgroundColor: red;
+  --backgroundColor: var(--white);
 }
 
 /* If user prefers dark scheme */
