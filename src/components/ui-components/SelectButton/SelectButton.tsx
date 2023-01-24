@@ -3,13 +3,13 @@ import {
   InputSwitchChangeParams,
 } from "primereact/inputswitch";
 import { FC, useEffect, useState } from "react";
-import { SelectButtonContainer } from "./SelectButton.styled";
 
 interface Props {
-  checked: boolean;
+  checked?: boolean;
   onTrue?: () => void;
   onFalse?: () => void;
   onChange?: () => void;
+  className?: string;
 }
 
 export const SelectButton: FC<Props> = ({
@@ -17,9 +17,14 @@ export const SelectButton: FC<Props> = ({
   onFalse,
   onTrue,
   onChange,
+  className,
 }) => {
-  const [value, setValue] = useState<boolean>(checked);
-  const [touched, setTouched] = useState<boolean>(false);
+  const [value, setValue] = useState<boolean>();
+  const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    setValue(checked)
+  }, [checked])
 
   useEffect(() => {
     // Triggers this condition after touched and toggled to true
@@ -40,12 +45,10 @@ export const SelectButton: FC<Props> = ({
   };
 
   return (
-    <SelectButtonContainer>
-      <PrimeSwitch
-        className="prime-input-switch"
-        checked={value}
-        onChange={handleToggleChange}
-      />
-    </SelectButtonContainer>
+    <PrimeSwitch
+      className={`prime-input-switch ${className}`}
+      checked={value}
+      onChange={handleToggleChange}
+    />
   );
 };

@@ -1,15 +1,14 @@
-import { ComponentContainer } from "@/components/ui-components/ComponentContainer/ComponentContainer";
 import { FC, useCallback, useEffect, useState } from "react";
-import { NavbarContainer } from "./Navbar.styled";
 import { GoBook } from "react-icons/go";
 import { useIsDarkModePreferred } from "@/hooks/useIsDarkModePreferred";
 import { SelectButton } from "@/components/ui-components/SelectButton/SelectButton";
 import { DARK_THEME, LIGHT_THEME } from "@/constants/themeConstants";
 import { bodyClassListContains, getBodyClassListArray } from "./Navbar.helper";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { ComponentContainer } from "@/components/ui-components/ComponentContainer/ComponentContainer";
+import { NavbarContainer, SelectButtonWrapper } from "./Navbar.styled";
 
 export const Navbar: FC = () => {
-  let isDarkModePreferred = useIsDarkModePreferred();
-
   const [documentBodyClassList, setDocumentBodyClassList] = useState<string[]>([
     "",
   ]);
@@ -18,6 +17,7 @@ export const Navbar: FC = () => {
     setDocumentBodyClassList(getBodyClassListArray());
   }, []);
 
+  const isDarkModePreferred = useIsDarkModePreferred();
   const handleToggleTheme = useCallback(() => {
     if (
       bodyClassListContains(DARK_THEME) ||
@@ -59,12 +59,25 @@ export const Navbar: FC = () => {
           <GoBook className="svgIcon" />
           <p className="menuTitle">Interactive Menu</p>
         </div>
-        <div className="navigationItems">{documentBodyClassList}</div>
 
-        <SelectButton
-          checked={isDarkModePreferred}
-          onChange={handleToggleTheme}
-        />
+        <SelectButtonWrapper>
+          <div className="icon-container">
+            {(bodyClassListContains(DARK_THEME) ||
+              (!bodyClassListContains(DARK_THEME) &&
+                !bodyClassListContains(LIGHT_THEME) &&
+                isDarkModePreferred)) && <FaSun />}
+          </div>
+          <SelectButton
+            checked={isDarkModePreferred}
+            onChange={handleToggleTheme}
+          />
+          <div className="icon-container">
+            {(bodyClassListContains(LIGHT_THEME) ||
+              (!bodyClassListContains(DARK_THEME) &&
+                !bodyClassListContains(LIGHT_THEME) &&
+                !isDarkModePreferred)) && <FaMoon />}
+          </div>
+        </SelectButtonWrapper>
       </NavbarContainer>
     </ComponentContainer>
   );

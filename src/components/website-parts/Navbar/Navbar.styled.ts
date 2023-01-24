@@ -32,3 +32,18 @@ export const NavbarContainer = styled.nav`
     }
   }
 `;
+
+export const SelectButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon-container {
+    min-width: 16px;
+    display: flex;
+  }
+
+  .prime-input-switch {
+    margin: 0 var(--spacingVeryShort);
+  }
+`;

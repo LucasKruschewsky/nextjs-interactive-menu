@@ -1,45 +1,13 @@
-/* Dark theme variables */
-body.darkTheme {
-  --primaryDarker: #1c1c1c;
-  --primaryDark: #2f2f2f;
-  --primary: #434343;
-  --primaryLight: #575757;
-
-  --secondaryDarker: #fdbe39;
-  --secondaryDark: #fecf3e;
-  --secondary: #ffda3d;
-  --secondaryLight: #fff056;
-
-  --white: #eee;
-
-  --backgroundColor: #1c1c1c;
-}
-
-/* Light theme variables */
-body.lightTheme {
-  --primaryDarker: #fdbe39;
-  --primaryDark: #fecf3e;
-  --primary: #ffda3d;
-  --primaryLight: #fff056;
-
-  --secondaryDarker: #1c1c1c;
-  --secondaryDark: #2f2f2f;
-  --secondary: #434343;
-  --secondaryLight: #575757;
-
-  --white: #eee;
-
-  --backgroundColor: var(--white);
-}
-
 /* If user prefers dark scheme */
 @media (prefers-color-scheme: dark) {
+  body.darkTheme,
   body {
     --primaryDarker: #1c1c1c;
     --primaryDark: #2f2f2f;
     --primary: #434343;
     --primaryLight: #575757;
 
+    --secondaryDarkest: #f5a702;
     --secondaryDarker: #fdbe39;
     --secondaryDark: #fecf3e;
     --secondary: #ffda3d;
@@ -49,11 +17,10 @@ body.lightTheme {
 
     --backgroundColor: #1c1c1c;
   }
-}
 
-/* If user prefers light scheme */
-@media (prefers-color-scheme: light) {
-  body {
+  /* Light theme variables */
+  body.lightTheme {
+    --primaryDarkest: #f5a702;
     --primaryDarker: #fdbe39;
     --primaryDark: #fecf3e;
     --primary: #ffda3d;
@@ -66,7 +33,45 @@ body.lightTheme {
 
     --white: #eee;
 
-    --backgroundColor: red;
+    --backgroundColor: var(--white);
+  }
+}
+
+/* If user prefers light scheme */
+@media (prefers-color-scheme: light) {
+  body.lightTheme,
+  body {
+    --primaryDarkest: #f5a702;
+    --primaryDarker: #fdbe39;
+    --primaryDark: #fecf3e;
+    --primary: #ffda3d;
+    --primaryLight: #fff056;
+
+    --secondaryDarker: #1c1c1c;
+    --secondaryDark: #2f2f2f;
+    --secondary: #434343;
+    --secondaryLight: #575757;
+
+    --white: #eee;
+
+    --backgroundColor: var(--white);
+  }
+
+  body.darkTheme {
+    --primaryDarker: #1c1c1c;
+    --primaryDark: #2f2f2f;
+    --primary: #434343;
+    --primaryLight: #575757;
+
+    --secondaryDarkest: #f5a702;
+    --secondaryDarker: #fdbe39;
+    --secondaryDark: #fecf3e;
+    --secondary: #ffda3d;
+    --secondaryLight: #fff056;
+
+    --white: #eee;
+
+    --backgroundColor: #1c1c1c;
   }
 }
 
@@ -77,4 +82,31 @@ body.lightTheme {
   --spacingMedium: 2rem;
   --spacingShort: 1rem;
   --spacingVeryShort: 0.5rem;
+
+  --sectionSpacingVeryLarge: 7rem;
+  --sectionSpacingLarge: 5.5rem;
+  --sectionSpacingMedium: 4rem;
+  --sectionSpacingShort: 2.5rem;
+  --sectionSpacingVeryShort: 1.5rem;
+}
+
+/* Warning, Error and Success */
+:root {
+  --successDarker: #1e4620;
+  --successDark: #357b38;
+  --success: #4caf50;
+  --successLight: #90cd93;
+  --successLighter: #b2ddb4;
+
+  --errorDarker: #661a14;
+  --errorDark: #b32d23;
+  --error: #ff4032;
+  --errorLight: #ff8980;
+  --errorLighter: #ffada7;
+
+  --warningDarker: #623200;
+  --warningDark: #ac5700;
+  --warning: #f57c00;
+  --warningLight: #f9ae61;
+  --warningLighter: #fbc791;
 }
