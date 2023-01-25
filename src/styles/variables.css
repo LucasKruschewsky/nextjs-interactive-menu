@@ -7,11 +7,11 @@
     --primary: #434343;
     --primaryLight: #575757;
 
-    --secondaryDarkest: #f5a702;
-    --secondaryDarker: #fdbe39;
-    --secondaryDark: #fecf3e;
-    --secondary: #ffda3d;
-    --secondaryLight: #fff056;
+    --secondaryDarkest: #c28401;
+    --secondaryDarker: #d79201;
+    --secondaryDark: #f5a702;
+    --secondary: #fdb316;
+    --secondaryLight: #fdbb30;
 
     --white: #eee;
 
@@ -20,11 +20,11 @@
 
   /* Light theme variables */
   body.lightTheme {
-    --primaryDarkest: #f5a702;
-    --primaryDarker: #fdbe39;
-    --primaryDark: #fecf3e;
-    --primary: #ffda3d;
-    --primaryLight: #fff056;
+    --primaryDarkest: #c28401;
+    --primaryDarker: #d79201;
+    --primaryDark: #f5a702;
+    --primary: #fdb316;
+    --primaryLight: #fdbb30;
 
     --secondaryDarker: #1c1c1c;
     --secondaryDark: #2f2f2f;
@@ -41,11 +41,11 @@
 @media (prefers-color-scheme: light) {
   body.lightTheme,
   body {
-    --primaryDarkest: #f5a702;
-    --primaryDarker: #fdbe39;
-    --primaryDark: #fecf3e;
-    --primary: #ffda3d;
-    --primaryLight: #fff056;
+    --primaryDarkest: #c28401;
+    --primaryDarker: #d79201;
+    --primaryDark: #f5a702;
+    --primary: #fdb316;
+    --primaryLight: #fdbb30;
 
     --secondaryDarker: #1c1c1c;
     --secondaryDark: #2f2f2f;
@@ -63,11 +63,11 @@
     --primary: #434343;
     --primaryLight: #575757;
 
-    --secondaryDarkest: #f5a702;
-    --secondaryDarker: #fdbe39;
-    --secondaryDark: #fecf3e;
-    --secondary: #ffda3d;
-    --secondaryLight: #fff056;
+    --secondaryDarkest: #c28401;
+    --secondaryDarker: #d79201;
+    --secondaryDark: #f5a702;
+    --secondary: #fdb316;
+    --secondaryLight: #fdbb30;
 
     --white: #eee;
 
