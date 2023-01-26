@@ -6,16 +6,23 @@
     --primaryDark: #2f2f2f;
     --primary: #434343;
     --primaryLight: #575757;
+    --primaryLighter: #727272;
 
-    --secondaryDarkest: #c28401;
-    --secondaryDarker: #d79201;
-    --secondaryDark: #f5a702;
-    --secondary: #fdb316;
-    --secondaryLight: #fdbb30;
+    --secondaryDarkest: #593ba1;
+    --secondaryDarker: #6f48c9;
+    --secondaryDark: #6f48c9;
+    --secondary: #8257e5;
+    --secondaryLight: #9f75ff;
+    --secondaryLighter: #b08fff;
 
     --white: #eee;
 
-    --backgroundColor: #1c1c1c;
+    --backgroundColor: #1d1d1d;
+    --backgroundColorHigh: #2e2e2e;
+    --backgroundColorHigher: #525252;
+
+    --textColor: #eee;
+    --textColorHighlight: #eee;
   }
 
   /* Light theme variables */
@@ -25,15 +32,22 @@
     --primaryDark: #f5a702;
     --primary: #fdb316;
     --primaryLight: #fdbb30;
+    --primaryLighter: #fdc652;
 
     --secondaryDarker: #1c1c1c;
     --secondaryDark: #2f2f2f;
     --secondary: #434343;
     --secondaryLight: #575757;
+    --secondaryLighter: #727272;
 
     --white: #eee;
 
-    --backgroundColor: var(--white);
+    --backgroundColor: #eee;
+    --backgroundColorHigh: rgb(186, 185, 185);
+    --backgroundColorHigher: rgb(145, 145, 145);
+
+    --textColor: black;
+    --textColorHighlight: black;
   }
 }
 
@@ -46,15 +60,22 @@
     --primaryDark: #f5a702;
     --primary: #fdb316;
     --primaryLight: #fdbb30;
+    --primaryLighter: #fdc652;
 
     --secondaryDarker: #1c1c1c;
     --secondaryDark: #2f2f2f;
     --secondary: #434343;
     --secondaryLight: #575757;
+    --secondaryLighter: #727272;
 
     --white: #eee;
 
-    --backgroundColor: var(--white);
+    --backgroundColor: #eee;
+    --backgroundColorHigh: rgb(186, 185, 185);
+    --backgroundColorHigher: rgb(145, 145, 145);
+
+    --textColor: black;
+    --textColorHighlight: black;
   }
 
   body.darkTheme {
@@ -62,16 +83,23 @@
     --primaryDark: #2f2f2f;
     --primary: #434343;
     --primaryLight: #575757;
+    --primaryLighter: #727272;
 
-    --secondaryDarkest: #c28401;
-    --secondaryDarker: #d79201;
-    --secondaryDark: #f5a702;
-    --secondary: #fdb316;
-    --secondaryLight: #fdbb30;
+    --secondaryDarkest: #593ba1;
+    --secondaryDarker: #6f48c9;
+    --secondaryDark: #6f48c9;
+    --secondary: #8257e5;
+    --secondaryLight: #9f75ff;
+    --secondaryLighter: #b08fff;
 
     --white: #eee;
 
-    --backgroundColor: #1c1c1c;
+    --backgroundColor: #1d1d1d;
+    --backgroundColorHigh: #2e2e2e;
+    --backgroundColorHigher: #525252;
+
+    --textColor: #eee;
+    --textColorHighlight: #eee;
   }
 }
 

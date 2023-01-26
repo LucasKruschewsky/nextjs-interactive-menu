@@ -1883,28 +1883,6 @@
   border-color: #f44336;
 }
 
-.p-button {
-  color: #212529;
-  background: #ffc107;
-  border: 1px solid #ffc107;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
-    box-shadow 0.2s;
-  border-radius: 3px;
-}
-.p-button:enabled:hover,
-.p-button:not(button):not(a):not(.p-disabled):hover {
-  background: #ecb100;
-  color: #212529;
-  border-color: #ecb100;
-}
-.p-button:enabled:active,
-.p-button:not(button):not(a):not(.p-disabled):active {
-  background: #d29d00;
-  color: #212529;
-  border-color: #d29d00;
-}
 .p-button.p-button-outlined {
   background-color: transparent;
   color: #ffc107;
@@ -1999,13 +1977,7 @@
   color: #ffc107;
   background-color: #212529;
 }
-.p-button.p-button-raised {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-.p-button.p-button-rounded {
-  border-radius: 2rem;
-}
+
 .p-button.p-button-icon-only {
   width: 2.357rem;
   padding: 0.5rem 0;

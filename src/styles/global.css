@@ -1,8 +1,7 @@
-@import './reset.css';
-@import './variables.css';
-@import './theme.css';
-@import './custom-theme.css';
-
+@import "./reset.css";
+@import "./variables.css";
+@import "./theme.css";
+@import "./custom-theme.css";
 
 :root {
   font-family: "Montserrat", sans-serif;
@@ -10,4 +9,5 @@
 
 body {
   background-color: var(--backgroundColor);
+  transition: background-color 0.1s ease;
 }
