@@ -4,7 +4,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   color: var(--secondary);
-  padding: var(--spacingVeryShort) 0;
+  padding: var(--spacingShort) 0 var(--sectionSpacingShort);
 
   .iconAndTitle {
     display: flex;
