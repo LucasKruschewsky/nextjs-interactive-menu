@@ -1,6 +1,5 @@
 import Head from "next/head";
 import mockData from "@/mocks/restaurant-list";
-import { DefaultLayout } from "@/layouts/defaultLayout/defaultLayout";
 import { ContentContainer } from "@/styles/pageStyles/index.styled";
 import {
   RestaurantApiResponse,
@@ -9,21 +8,13 @@ import {
 import { Grid4Cols } from "@/components/website-parts/Grid4Cols/Grid4Cols.styled";
 import { RestaurantGridItem } from "@/components/website-parts/RestaurantGridItem/RestaurantGridItem";
 import { Title1 } from "@/components/ui-components/Typography/Title1";
+import { apiRestaurantResponseToArray } from "@/helpers/apiRestaurantResponseToArray";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { FC } from "react";
 
-export default function Home() {
-  const apiResponseToArray = (
-    restaurants: RestaurantApiResponse
-  ): RestaurantType[] => {
-    let restaurantsArray: RestaurantType[] = [];
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-    for (const [key, value] of Object.entries(restaurants)) {
-      restaurantsArray = [...restaurantsArray, value];
-    }
-    return restaurantsArray;
-  };
-
-  const restaurantList = apiResponseToArray(mockData);
-
+export const Home: FC<Props> = ({ restaurantList }) => {
   return (
     <>
       <Head>
@@ -32,20 +23,29 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <DefaultLayout>
-          <ContentContainer>
-            <Title1 uppercase>Check out available restaurants</Title1>
-            <Grid4Cols>
-              {restaurantList.map((restaurant) => (
-                <RestaurantGridItem
-                  key={restaurant.id}
-                  restaurant={restaurant}
-                />
-              ))}
-            </Grid4Cols>
-          </ContentContainer>
-        </DefaultLayout>
+        <ContentContainer>
+          <Title1 uppercase>Check out available restaurants</Title1>
+          <Grid4Cols>
+            {restaurantList?.map((restaurant) => (
+              <RestaurantGridItem key={restaurant.id} restaurant={restaurant} />
+            ))}
+          </Grid4Cols>
+        </ContentContainer>
       </main>
     </>
   );
+};
+
+interface StaticProps {
+  restaurantList: RestaurantType[];
 }
+
+export const getStaticProps: GetStaticProps<StaticProps> = async () => {
+  return {
+    props: {
+      restaurantList: apiRestaurantResponseToArray(mockData),
+    },
+  };
+};
+
+export default Home;
