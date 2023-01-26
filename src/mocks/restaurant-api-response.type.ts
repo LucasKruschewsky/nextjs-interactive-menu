@@ -6,6 +6,7 @@ export type RestaurantType = {
   name: string;
   id: string;
   imageUrl: string;
+  foodType: string[];
   branches: RestaurantBranchesType;
 };
 

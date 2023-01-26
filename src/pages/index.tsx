@@ -8,6 +8,7 @@ import {
 } from "@/mocks/restaurant-api-response.type";
 import { Grid4Cols } from "@/components/website-parts/Grid4Cols/Grid4Cols.styled";
 import { RestaurantGridItem } from "@/components/website-parts/RestaurantGridItem/RestaurantGridItem";
+import { Title1 } from "@/components/ui-components/Typography/Title1";
 
 export default function Home() {
   const apiResponseToArray = (
@@ -33,6 +34,7 @@ export default function Home() {
       <main>
         <DefaultLayout>
           <ContentContainer>
+            <Title1 uppercase>Check out available restaurants</Title1>
             <Grid4Cols>
               {restaurantList.map((restaurant) => (
                 <RestaurantGridItem

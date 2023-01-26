@@ -13,10 +13,17 @@ export const RestaurantGridItemContainer = styled.div`
 export const RestaurantImage = styled.div<{
   backgroundImgUrl: string;
 }>`
+  position: relative;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   height: 200px;
   background: center / cover no-repeat url(${(props) => props.backgroundImgUrl});
+
+  /* this will be the image overlay div */
+  div {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 `;
 
 export const RestaurantDetails = styled.div`
@@ -30,10 +37,5 @@ export const RestaurantDetails = styled.div`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 
-  padding: var(--spacingVeryShort) var(--spacingShort);
-
-  .restaurant-item-name {
-    font-weight: 700;
-    margin-bottom: var(--spacingShort);
-  }
+  padding: var(--spacingShort);
 `;
