@@ -116,6 +116,10 @@
   --sectionSpacingMedium: 4rem;
   --sectionSpacingShort: 2.5rem;
   --sectionSpacingVeryShort: 1.5rem;
+
+  --navbarOffset: 96px;
+
+  --highestZ: 9999;
 }
 
 /* Warning, Error and Success */

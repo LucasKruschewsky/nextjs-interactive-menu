@@ -8,8 +8,6 @@ export const Title1 = styled.h1<TypographyProps>`
   color: ${(props) => isTextHighlighted(props)};
   font-weight: ${(props) => isTextBold(props)};
 
-  margin-bottom: var(--sectionSpacingVeryShort);
-
   text-transform: ${(props) => (props.uppercase ? "uppercase" : "none")};
 
   @media ${mediaQueries.maxWidthMD} {

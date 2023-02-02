@@ -1,4 +1,4 @@
-export const useSlugfiedText = (str: string) => {
+export const slugfyText = (str: string) => {
   str = str.replace(/^\s+|\s+$/g, "");
 
   // Make the string lowercase

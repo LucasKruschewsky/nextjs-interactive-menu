@@ -7,8 +7,14 @@ import { bodyClassListContains, getBodyClassListArray } from "./Navbar.helper";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { ComponentContainer } from "@/components/ui-components/ComponentContainer/ComponentContainer";
 import { NavbarContainer, SelectButtonWrapper } from "./Navbar.styled";
+import Link from "next/link";
+import { Title1 } from "@/components/ui-components/Typography/Title1";
 
-export const Navbar: FC = () => {
+interface Props {
+  positionAbsolute?: boolean;
+}
+
+export const Navbar: FC<Props> = ({ positionAbsolute }) => {
   const [documentBodyClassList, setDocumentBodyClassList] = useState<string[]>([
     "",
   ]);
@@ -53,11 +59,15 @@ export const Navbar: FC = () => {
   }, [isDarkModePreferred]);
 
   return (
-    <ComponentContainer>
-      <NavbarContainer>
+    <NavbarContainer className={positionAbsolute ? "absolute-navbar" : ""}>
+      <ComponentContainer innerContainerClass="navbar-inner-container">
         <div className="iconAndTitle">
           <GoBook className="svgIcon" />
-          <p className="menuTitle">Interactive Menu</p>
+          <Link href="/">
+            <Title1 bold uppercase className="menuTitle">
+              Interactive Menu
+            </Title1>
+          </Link>
         </div>
 
         <SelectButtonWrapper>
@@ -78,7 +88,7 @@ export const Navbar: FC = () => {
                 !isDarkModePreferred)) && <FaMoon />}
           </div>
         </SelectButtonWrapper>
-      </NavbarContainer>
-    </ComponentContainer>
+      </ComponentContainer>
+    </NavbarContainer>
   );
 };

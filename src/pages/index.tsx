@@ -1,20 +1,19 @@
 import Head from "next/head";
 import mockData from "@/mocks/restaurant-list";
 import { ContentContainer } from "@/styles/pageStyles/index.styled";
-import {
-  RestaurantApiResponse,
-  RestaurantType,
-} from "@/mocks/restaurant-api-response.type";
+import { RestaurantType } from "@/mocks/restaurant-api-response.type";
 import { Grid4Cols } from "@/components/website-parts/Grid4Cols/Grid4Cols.styled";
 import { RestaurantGridItem } from "@/components/website-parts/RestaurantGridItem/RestaurantGridItem";
 import { Title1 } from "@/components/ui-components/Typography/Title1";
 import { apiRestaurantResponseToArray } from "@/helpers/apiRestaurantResponseToArray";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { FC } from "react";
+import { ComponentContainer } from "@/components/ui-components/ComponentContainer/ComponentContainer";
+import { NextPageWithLayout } from "./_app";
+import { DefaultLayout } from "@/layouts/defaultLayout/defaultLayout";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-export const Home: FC<Props> = ({ restaurantList }) => {
+export const Home: NextPageWithLayout<Props> = ({ restaurantList }) => {
   return (
     <>
       <Head>
@@ -33,6 +32,14 @@ export const Home: FC<Props> = ({ restaurantList }) => {
         </ContentContainer>
       </main>
     </>
+  );
+};
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <ComponentContainer>{page}</ComponentContainer>
+    </DefaultLayout>
   );
 };
 

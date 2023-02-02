@@ -1,5 +1,5 @@
 import { apiRestaurantResponseToArray } from "@/helpers/apiRestaurantResponseToArray";
-import { useSlugfiedText } from "@/hooks/useSlugfiedText";
+import { slugfyText } from "@/helpers/slugfyText";
 import {
   RestaurantApiResponse,
   RestaurantType,
@@ -12,7 +12,7 @@ export const getAllRestaurantsPaths = () => {
 
   return restaurants.map((restaurant) => ({
     params: {
-      restaurant: useSlugfiedText(restaurant.name),
+      restaurant: slugfyText(restaurant.name),
     },
   }));
 };
@@ -25,6 +25,6 @@ export const getRestaurantData = (
   const restaurantList = apiRestaurantResponseToArray(mockData);
 
   return restaurantList.filter(
-    (restaurant) => useSlugfiedText(restaurant.name) === slugfiedName
+    (restaurant) => slugfyText(restaurant.name) === slugfiedName
   );
 };

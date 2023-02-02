@@ -1,10 +1,20 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
-  display: flex;
-  justify-content: space-between;
   color: var(--secondary);
   padding: var(--spacingShort) 0 var(--sectionSpacingShort);
+
+  &.absolute-navbar {
+    position: absolute;
+    z-index: var(--highestZ);
+    width: 100%;
+  }
+
+  .navbar-inner-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 
   .iconAndTitle {
     display: flex;
@@ -12,7 +22,6 @@ export const NavbarContainer = styled.nav`
 
     .menuTitle {
       margin-left: var(--spacingShort);
-      text-transform: uppercase;
     }
 
     .svgIcon {

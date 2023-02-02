@@ -1,20 +1,35 @@
 import { getAllRestaurantsPaths, getRestaurantData } from "@/api/restaurants";
+import { Navbar } from "@/components/website-parts/Navbar/Navbar";
+import { RestaurantPageHero } from "@/components/website-parts/RestaurantPageHero/RestaurantPageHero";
 import { RestaurantType } from "@/mocks/restaurant-api-response.type";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import Image from "next/image";
-import { ParsedUrlQuery } from "querystring";
-import { FC } from "react";
+import Head from "next/head";
+import { NextPageWithLayout } from "../_app";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-export const RestaurantDisplay: FC<Props> = ({ restaurantData }) => {
+export const RestaurantDisplay: NextPageWithLayout<Props> = ({
+  restaurantData,
+}) => {
   return (
-    <Image
-      width={200}
-      height={200}
-      src={restaurantData[0].imageUrl}
-      alt={`${restaurantData[0].name}`}
-    />
+    <>
+      <Head>
+        <title>{`${restaurantData[0].name} - Interactive Menu`}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main>
+        <RestaurantPageHero restaurant={restaurantData[0]} />
+      </main>
+    </>
+  );
+};
+
+RestaurantDisplay.getLayout = function getLayout(page) {
+  return (
+    <>
+      <Navbar positionAbsolute />
+      {page}
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ export const DefaultLayout: FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <ComponentContainer>{children}</ComponentContainer>
+      {children}
     </>
   );
 };

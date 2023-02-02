@@ -5,4 +5,8 @@ export const ContentContainer = styled.div`
   background-color: var(--backgroundColorHigh);
   border-radius: 4px;
   padding: var(--spacingMedium);
+
+  h1 {
+    margin-bottom: var(--spacingShort);
+  }
 `;
